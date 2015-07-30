@@ -24,10 +24,12 @@ public class processFileTest {
     public void setUp() {
     }
 
-   // @Test
+    //@Test
     public void testConverFileToBinaryString() {
         processFile x = new processFile();
-        String y = x.converFileToBinaryString("C:\\Users\\Administrator\\Desktop\\nguyet.txt");
+        String y = x.converFileToBinaryString("C:\\Users\\Administrator\\Desktop\\dentrang.bmp");
+        System.out.println(y);
+        
     }
 
     //@Test
@@ -45,10 +47,16 @@ public class processFileTest {
         System.out.println(Byte.parseByte("11111111", 2));
     }
 
-    @Test
+    //@Test
     public void testCreateFileFromByteArray() throws Exception {
         System.out.print(Integer.valueOf("11111111", 2));
         
+    }
+
+    @Test
+    public void testConvertBitmapBlackWhiteToMatrixBinary() {
+        processFile x = new processFile();
+    x.convertBitmapBlackWhiteToMatrixBinary("C:\\Users\\Administrator\\Desktop\\dentrang.bmp");
     }
     
 }

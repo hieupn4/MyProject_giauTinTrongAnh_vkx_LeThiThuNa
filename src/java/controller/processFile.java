@@ -5,6 +5,9 @@
  */
 package controller;
 
+import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -38,7 +41,7 @@ public class processFile {
             fis.close();
             for (int i = 0; i < bFile.length; i++) {
                 String x = Integer.toBinaryString(bFile[i]);
-                System.out.print(bFile[i] + " ");
+                //System.out.print(bFile[i] + " ");
                 if (x.length() < 8) {
                     String y = "";
                     for (int j = 0; j < 8 - x.length(); j++) {
@@ -53,6 +56,41 @@ public class processFile {
             e.printStackTrace();
         }
         return storeBinaryStream;
+    }
+    public void convertBitmapBlackWhiteToMatrixBinary(String url)
+    {
+        Dimension sizeImage = processImage.getImageDim(url);
+        // tạo một ma trận ảnh Bitmap, chú ý là mỗi điểm ảnh là 1 bit
+        int[][] matrixImage = new int[sizeImage.height][sizeImage.width];
+        String storeBinaryStream = "";
+        FileInputStream fis = null;
+        File file = new File(url);
+        // convert file into array of bytes
+        byte[] bFile = new byte[(int) file.length()];
+        try {
+
+            fis = new FileInputStream(file);
+            fis.read(bFile);
+            fis.close();
+           /* for (int i = 0; i < bFile.length; i++) {
+                String x = Integer.toBinaryString(bFile[i]);
+                lengTest = lengTest + x.length();
+                System.out.print(x + ".."+bFile[i]+" ");
+                if (x.length() < 8) {
+                    String y = "";
+                    for (int j = 0; j < 8 - x.length(); j++) {
+                        y = y + "0";
+                    }
+                    x = y + x;
+                }
+                storeBinaryStream = storeBinaryStream + x;
+
+            } */
+            System.out.println(processByteBinary.toBinary(bFile));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        //return null; 
     }
 
     /**
