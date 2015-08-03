@@ -28,6 +28,7 @@ public class processFile {
      * @param : url of file
      * @return : return Binary String of File
      */
+    
     public String converFileToBinaryString(String url) {
         String storeBinaryStream = "";
         FileInputStream fis = null;
@@ -39,23 +40,10 @@ public class processFile {
             fis = new FileInputStream(file);
             fis.read(bFile);
             fis.close();
-            for (int i = 0; i < bFile.length; i++) {
-                String x = Integer.toBinaryString(bFile[i]);
-                //System.out.print(bFile[i] + " ");
-                if (x.length() < 8) {
-                    String y = "";
-                    for (int j = 0; j < 8 - x.length(); j++) {
-                        y = y + "0";
-                    }
-                    x = y + x;
-                }
-                storeBinaryStream = storeBinaryStream + x;
-
-            }
         } catch (Exception e) {
             e.printStackTrace();
-        }
-        return storeBinaryStream;
+        }  
+        return processByteBinary.toBinary(bFile);
     }
     public void convertBitmapBlackWhiteToMatrixBinary(String url)
     {
@@ -86,7 +74,8 @@ public class processFile {
                 storeBinaryStream = storeBinaryStream + x;
 
             } */
-            System.out.println(processByteBinary.toBinary(bFile));
+            String z = processByteBinary.toBinary(bFile);
+            System.out.print(z.length()/8);
         } catch (Exception e) {
             e.printStackTrace();
         }
