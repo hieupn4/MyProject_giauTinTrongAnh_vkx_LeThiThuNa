@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package controller;
-
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -45,41 +44,36 @@ public class processFile {
         }  
         return processByteBinary.toBinary(bFile);
     }
-    public void convertBitmapBlackWhiteToMatrixBinary(String url)
+    /**
+     * phương thức này chuyển một file ảnh bitmap nhị phân thành một mảng các bit, tương ứng
+     * với mỗi pixel trên ảnh bitmap
+     * @param url
+     * @return 
+     */
+    public char[][] convertBitmapBlackWhiteToMatrixBinary(String url)
     {
         Dimension sizeImage = processImage.getImageDim(url);
+        String binaryStringBitmapBlackWhite = converFileToBinaryString(url);
+        int lengthBinaryString = binaryStringBitmapBlackWhite.length();
         // tạo một ma trận ảnh Bitmap, chú ý là mỗi điểm ảnh là 1 bit
-        int[][] matrixImage = new int[sizeImage.height][sizeImage.width];
-        String storeBinaryStream = "";
-        FileInputStream fis = null;
-        File file = new File(url);
-        // convert file into array of bytes
-        byte[] bFile = new byte[(int) file.length()];
-        try {
-
-            fis = new FileInputStream(file);
-            fis.read(bFile);
-            fis.close();
-           /* for (int i = 0; i < bFile.length; i++) {
-                String x = Integer.toBinaryString(bFile[i]);
-                lengTest = lengTest + x.length();
-                System.out.print(x + ".."+bFile[i]+" ");
-                if (x.length() < 8) {
-                    String y = "";
-                    for (int j = 0; j < 8 - x.length(); j++) {
-                        y = y + "0";
-                    }
-                    x = y + x;
-                }
-                storeBinaryStream = storeBinaryStream + x;
-
-            } */
-            String z = processByteBinary.toBinary(bFile);
-            System.out.print(z.length()/8);
-        } catch (Exception e) {
-            e.printStackTrace();
+        char[][] matrixImage = new char[sizeImage.height][sizeImage.width];
+        if((sizeImage.width%32)==0)//nếu số byte trên một hàng ảnh của phần data bitmap chia hết cho 4 thì quá ngon, khỏi phải xử lý phức tạp
+        {
+            for(int i=0;i<sizeImage.height;i++)
+                for(int j=0;j<sizeImage.width;j++)
+                    matrixImage[i][j] = binaryStringBitmapBlackWhite.charAt(lengthBinaryString-((i+1)*(sizeImage.width))+j);
+             
         }
-        //return null; 
+        else // trog trường hợp số byte không chia hết cho 4 thì tự động thêm các bit 0 vào đuôi mỗi hàng để số byte chia hết cho 4
+        {
+            //tính xem có bao nhiêu bit 0 được thêm vào đuôi mỗi hàng
+            int countAddBit = 32-(sizeImage.width%32);
+            int lengthAct = countAddBit + sizeImage.width;
+            for(int i=0;i<sizeImage.height;i++)
+                for(int j=0;j<sizeImage.width;j++)
+                    matrixImage[i][j] = binaryStringBitmapBlackWhite.charAt(lengthBinaryString-((i+1)*lengthAct)+j);
+        }
+        return matrixImage;
     }
 
     /**

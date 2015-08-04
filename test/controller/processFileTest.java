@@ -23,14 +23,24 @@ public class processFileTest {
     //@Before
     public void setUp() {
     }
-    @Test
+   // @Test
     public void testConverFileToBinaryString() {
         
         processFile x = new processFile();
-        String y = x.converFileToBinaryString("C:\\Users\\Administrator\\Desktop\\bm777.bmp");
+        String y = x.converFileToBinaryString("C:\\Users\\Administrator\\Desktop\\dentrang.bmp");
         System.out.print(y.length());
-        for(int i=480;i<528;i++)
-            System.out.print(y.charAt(i));
+        int dem =0;
+        for(int i=62*8;i<942*8;i++)
+        {
+             System.out.print(y.charAt(i));
+             dem = dem +1;
+             if(dem==64)
+             {
+             System.out.println("");
+             dem=0;
+             }
+        }
+           
     }
     //@Test
     public void testCheckSizeFile() {
@@ -53,10 +63,17 @@ public class processFileTest {
         
     }
 
-    //@Test
+    @Test
     public void testConvertBitmapBlackWhiteToMatrixBinary() {
-        processFile x = new processFile();
-    x.convertBitmapBlackWhiteToMatrixBinary("C:\\Users\\Administrator\\Desktop\\dentrang.bmp");
+    processFile x = new processFile();   
+    int width = processImage.getImageDim("C:\\Users\\Administrator\\Desktop\\bm2.bmp").width;
+    int height = processImage.getImageDim("C:\\Users\\Administrator\\Desktop\\bm2.bmp").height;
+    char[][] y = x.convertBitmapBlackWhiteToMatrixBinary("C:\\Users\\Administrator\\Desktop\\bm2.bmp");
+    for(int i=0;i<height;i++)
+    {
+        for(int j=0;j<width;j++)
+            System.out.print(y[i][j]+" ");
+        System.out.println("");
+    }   
     }
-    
 }

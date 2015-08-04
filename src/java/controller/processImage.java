@@ -35,6 +35,8 @@ public class processImage {
         }
         return result;
     }
+    // phương thức này trả về một đối tượng Dimension, đối tượng này chứa thông số 
+    // chiều rộng và chiều cao của đối tượng ảnh
     public static Dimension getImageDim(final String path) {
         Dimension result = null;
         String suffix = getFileSuffix(path);
