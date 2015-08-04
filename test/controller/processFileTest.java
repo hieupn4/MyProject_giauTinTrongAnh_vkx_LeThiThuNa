@@ -23,23 +23,13 @@ public class processFileTest {
     //@Before
     public void setUp() {
     }
-   // @Test
+    @Test
     public void testConverFileToBinaryString() {
         
         processFile x = new processFile();
-        String y = x.converFileToBinaryString("C:\\Users\\Administrator\\Desktop\\dentrang.bmp");
+        String y = x.converFileToBinaryString("C:\\Users\\Administrator\\Desktop\\nguyet.bmp");
         System.out.print(y.length());
-        int dem =0;
-        for(int i=62*8;i<942*8;i++)
-        {
-             System.out.print(y.charAt(i));
-             dem = dem +1;
-             if(dem==64)
-             {
-             System.out.println("");
-             dem=0;
-             }
-        }
+        
            
     }
     //@Test
@@ -63,7 +53,7 @@ public class processFileTest {
         
     }
 
-    @Test
+    //@Test
     public void testConvertBitmapBlackWhiteToMatrixBinary() {
     processFile x = new processFile();   
     int width = processImage.getImageDim("C:\\Users\\Administrator\\Desktop\\bm2.bmp").width;
