@@ -34,4 +34,23 @@ public class processByteBinary {
         }
         return toReturn;
     }
+    //chuyển 8 bit của 1 byte thành 1 số nằm trong khoảng từ 0 đến 255
+    public static int converToInt255(String x)
+    {
+        int foo = Integer.parseInt(x, 2);
+        return foo;
+    }
+    // chuyển 1 số trong khoảng 0-255 thành chuỗi 8 bit
+    public static String converTo8Bit255(int x)
+    {
+       if(!(Integer.toBinaryString(x).length()<8))
+           return Integer.toBinaryString(x);
+       else
+       {
+           String y=Integer.toBinaryString(x);
+           for(int j=0;j<(8-Integer.toBinaryString(x).length());j++)
+               y ="0"+y;
+           return y;   
+        }
+    }
 }

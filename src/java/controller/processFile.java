@@ -28,7 +28,7 @@ public class processFile {
      * @return : return Binary String of File
      */
     
-    public String converFileToBinaryString(String url) {
+    public static String converFileToBinaryString(String url) {
         String storeBinaryStream = "";
         FileInputStream fis = null;
         File file = new File(url);
@@ -95,20 +95,19 @@ public class processFile {
         }
     }
 
-    public byte[] converBinaryToByteAarray(String binaryString) {
+    public byte[] converBinaryToByteAarray(String s) {
 
-        int sizeOfArray = binaryString.length() / 8;
-        byte[] store = new byte[sizeOfArray];
-        for (int i = 0; i < sizeOfArray; i++) {
-            String x = "";
-            for (int j = i * 8; j < i * 8 + 8; j++) {
-                x = x + binaryString.charAt(j);
+       int sLen = s.length();
+        byte[] toReturn = new byte[(sLen + Byte.SIZE - 1) / Byte.SIZE];
+        char c;
+        for (int i = 0; i < sLen; i++) {
+            if ((c = s.charAt(i)) == '1') {
+                toReturn[i / Byte.SIZE] = (byte) (toReturn[i / Byte.SIZE] | (0x80 >>> (i % Byte.SIZE)));
+            } else if (c != '0') {
+                throw new IllegalArgumentException();
             }
-            System.out.println(x);
-
-            // store[i] = (Byte)x;
         }
-        return store;
+        return toReturn;
     }
     /*  public byte[] converBinaryToByteAarray(String binaryString)
      {    

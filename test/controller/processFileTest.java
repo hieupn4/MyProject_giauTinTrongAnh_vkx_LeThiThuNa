@@ -26,9 +26,9 @@ public class processFileTest {
     @Test
     public void testConverFileToBinaryString() {
         
-        processFile x = new processFile();
-        String y = x.converFileToBinaryString("C:\\Users\\Administrator\\Desktop\\nguyet.bmp");
-        System.out.print(y.length());
+       byte[] x = {4,10,12};
+       byte y = (byte) (0.3*x[0]+0.6*x[1]+0.1*x[2]);
+       System.out.println(y);
         
            
     }

@@ -45,14 +45,14 @@ public class implixitAndexPlixitFileToBitmap24bitTest {
         byte[] y = processByteBinary.fromBinary(trunggian);
         processFile z = new processFile();
         z.createFileFromByteArray(y,"C:\\Users\\Administrator\\Desktop\\hung2.docx"); */
-        implixitAndexPlixitFileToBitmap24bit.processHideFile("C:\\Users\\Administrator\\Desktop\\nguyet.bmp","C:\\Users\\Administrator\\Desktop\\nguyet.docx");
+        implixitAndexPlixitFileToBitmap24bit.processHideFile("C:\\Users\\Administrator\\Desktop\\nhanxeo.bmp","C:\\Users\\Administrator\\Desktop\\nguyet.docx");
         
     }
 
     @Test
     public void testProcessShowFile() throws IOException {
         
-        implixitAndexPlixitFileToBitmap24bit.processShowFile("C:\\Users\\Administrator\\Desktop\\nguyetlu.bmp");
+       
         
         
     }

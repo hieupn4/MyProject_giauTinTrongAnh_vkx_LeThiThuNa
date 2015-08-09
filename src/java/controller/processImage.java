@@ -59,4 +59,33 @@ public class processImage {
         }
         return result;
     }
+    /**
+     * phương thức này để kiểm tra xem ảnh bit map mà ta đưa vào là loại ảnh gì 
+     * 1 bit, 8 bit hay 24 bit....
+     * nếu không phải ảnh bit map thì trả về 0.
+     * @param url
+     * @return 
+     */
+    public static int getTypeImage(String url)
+    {
+        //kiểm tra nếu đúng là file ảnh bitmap
+        if(checkInfomationImplixitFile.returnExtendFile(url).equals("bmp"))
+        {
+            String fileBinary = processFile.converFileToBinaryString(url);
+            String stringInfo = "";
+            for(int i=28*8;i<30*8;i++)
+            {
+                stringInfo = stringInfo + fileBinary.charAt(i);
+            }
+            if(stringInfo.equals("0001100000000000"))
+            return 24; // ảnh 24 bit
+            if(stringInfo.equals("0000000100000000"))
+            return 1; // ảnh 1 bit
+            if(stringInfo.equals("0010000000000000"))
+            return 32; // ảnh 32 bit
+            if(stringInfo.equals("0000100000000000"))
+            return 8; // ảnh 8 bit
+        }  
+            return 0;
+    }
 }

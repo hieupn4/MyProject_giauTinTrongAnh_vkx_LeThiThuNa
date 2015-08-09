@@ -15,9 +15,9 @@ import java.io.IOException;
  * @author Administrator
  */
 public class implixitAndexPlixitFileToBitmap24bit {
-    private static int countBit =94064;// đếm số lượng bit của file cần giấu
+    private static int countBit =98480;// đếm số lượng bit của file cần giấu
     /*
-    phương thức này để giấu các bit của file trong cắc bit của file bitmap gốc có location là rootBitmap
+    phương thức này để giấu các bit của file trong các bit của file bitmap gốc có location là rootBitmap
     */
     public static void processHideFile(String rootBitmap,String file) throws IOException
     {
@@ -52,24 +52,16 @@ public class implixitAndexPlixitFileToBitmap24bit {
             processFile x = new processFile();           
             byte[] y = processByteBinary.fromBinary(filethu);
             processFile z = new processFile();
-            z.createFileFromByteArray(y,"C:\\Users\\Administrator\\Desktop\\nguyetlu.bmp");
-      
-          /*  String filethu2 = filethu.substring(54*8);
-            String trunggian="";
-            for(int i=0;i<94064;i++)
-               trunggian = trunggian + filethu2.charAt(i*8+7);
-            processFile x = new processFile();
-            
-        byte[] y = processByteBinary.fromBinary(trunggian);
-        processFile z = new processFile();
-        z.createFileFromByteArray(y,"C:\\Users\\Administrator\\Desktop\\hung2.docx");
-            //return (headerIfo+returnBinary.toString()); */
+            z.createFileFromByteArray(y,"C:\\Users\\Administrator\\Desktop\\xeonhan.bmp");
         }       
     }
     /*
-    phương thức này để lấy dữ từng bit của file nằm trong ảnh bitmap ra
+    phương thức này để lấy dữ liệu từng bit của file nằm trong ảnh bitmap ra và chuyển nó thành file giấu
+    ,nhược điểm là ta phải biết định dạng của file ẩn la gì để còn biết đặt tên cho file xuất ra.
+    ví dụ thế này : url ="C:\\Users\\Administrator\\Desktop\\hungfile.docx", nghĩa là file bị ẩn là dạng docx
+    và ta lấy nó ra với tên là hungfile
     */
-    public static void processShowFile(String rootBitmap) throws IOException
+    public static void processShowFile(String rootBitmap,String url) throws IOException
     {
         processFile prox = new processFile();
         String storeStringBinaryImage = prox.converFileToBinaryString(rootBitmap);
@@ -89,7 +81,7 @@ public class implixitAndexPlixitFileToBitmap24bit {
              processFile x = new processFile();
              byte[] y = processByteBinary.fromBinary(file);
              processFile z = new processFile();
-             z.createFileFromByteArray(y,"C:\\Users\\Administrator\\Desktop\\hungfile.docx");           
+             z.createFileFromByteArray(y,url);           
         }      
     }
 }
