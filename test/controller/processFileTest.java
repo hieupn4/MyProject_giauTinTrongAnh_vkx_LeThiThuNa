@@ -26,10 +26,13 @@ public class processFileTest {
     @Test
     public void testConverFileToBinaryString() {
         
-       byte[] x = {4,10,12};
-       byte y = (byte) (0.3*x[0]+0.6*x[1]+0.1*x[2]);
-       System.out.println(y);
-        
+       String x = processFile.converFileToBinaryString("C:\\Users\\Administrator\\Desktop\\thu.bmp");
+       String y = x.substring(16,48);
+       
+       for(int i=16;i<6*8;i++)
+       {
+          System.out.print(x.charAt(i)); 
+       }
            
     }
     //@Test
