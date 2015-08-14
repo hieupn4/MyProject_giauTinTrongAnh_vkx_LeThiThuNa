@@ -1,8 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//***********************************************************************************
+//Nguyen Kieu Oanh**********************Chu Thi Thuong Hien*****************************
+//***************Tran Thi Khanh Linh*****************************Nguyen Thi Nguyet*******
+//*******************************Nguyen Thi Thanh Nhan*********************************
+//***********************************************************************************
+//*****Author: hieupn89@gmail.com*******************************************************
 package controller;
 
 import java.awt.Dimension;
@@ -16,7 +17,7 @@ import javax.imageio.stream.FileImageInputStream;
 import javax.imageio.stream.ImageInputStream;
 
 /**
- * this class return width , height and infomation of Image
+ * lớp này trả về các thông số của ảnh,cái này mình có chỉnh sửa từ một code nguồn trên mạng
  * @author copyright from Stackoverflow 
  * adress http://stackoverflow.com/questions/672916/how-to-get-image-height-and-width-using-java
  */
@@ -62,30 +63,63 @@ public class processImage {
     /**
      * phương thức này để kiểm tra xem ảnh bit map mà ta đưa vào là loại ảnh gì 
      * 1 bit, 8 bit hay 24 bit....
+     * nó có 2 chế độ trả về , hoặc là trả về chuỗi nhị phân nếu i=2
+     * hoặc là trả về chuỗi giá trị int nếu i=1
      * nếu không phải ảnh bit map thì trả về 0.
      * @param url
      * @return 
      */
-    public static int getTypeImage(String url)
+    public static String getBitPerPixelImage(int i,String url)
     {
         //kiểm tra nếu đúng là file ảnh bitmap
         if(checkInfomationImplixitFile.returnExtendFile(url).equals("bmp"))
         {
             String fileBinary = processFile.converFileToBinaryString(url);
             String stringInfo = "";
-            for(int i=28*8;i<30*8;i++)
+            for(int j=28*8;j<30*8;j++)
             {
-                stringInfo = stringInfo + fileBinary.charAt(i);
+                stringInfo = stringInfo + fileBinary.charAt(j);
             }
-            if(stringInfo.equals("0001100000000000"))
-            return 24; // ảnh 24 bit
-            if(stringInfo.equals("0000000100000000"))
-            return 1; // ảnh 1 bit
-            if(stringInfo.equals("0010000000000000"))
-            return 32; // ảnh 32 bit
-            if(stringInfo.equals("0000100000000000"))
-            return 8; // ảnh 8 bit
+            if(stringInfo.equals("0001100000000000")&&(i==1))
+            return "24"; // ảnh 24 bit trong trường hợp trả về giá trị dạng 
+            if(stringInfo.equals("0000000100000000")&&(i==1))
+            return "1"; // ảnh 1 bit
+            if(stringInfo.equals("0010000000000000")&&(i==1))
+            return "32"; // ảnh 32 bit
+            if(stringInfo.equals("0000100000000000")&&(i==1))
+            return "8"; // ảnh 8 bit
+            if(stringInfo.equals("0001100000000000")&&(i==2))
+            return "0001100000000000"; // ảnh 24 bit
+            if(stringInfo.equals("0000000100000000")&&(i==2))
+            return "0000000100000000"; // ảnh 1 bit
+            if(stringInfo.equals("0010000000000000")&&(i==2))
+            return "0010000000000000"; // ảnh 32 bit
+            if(stringInfo.equals("0000100000000000")&&(i==2))
+            return "0000100000000000"; // ảnh 8 bit
         }  
-            return 0;
+            return "0";
+    }
+    /**
+     * phương thức này trả về kích thước của ảnh bitmap dưới dạng 1 String
+     * nó có hai chế độ trả về , hoặc là trả về một chuỗi là số byte của anh
+     * hai là trả về chuỗi nhị phân 32 bit (byte thứ 3 đến thứ 6) 
+     * nếu không phải file bitmap thì trả về "0"
+     */
+    public static String getSizeOfBitmapFile(int i,String url)
+    {
+        if(checkInfomationImplixitFile.returnExtendFile(url).equals("bmp"))
+        {
+            String fileBinary = processFile.converFileToBinaryString(url);
+            String stringInfo = "";
+            for(int j=2*8;j<6*8;j++)
+            {
+                stringInfo = stringInfo + fileBinary.charAt(j);
+            }
+            if(i!=1)
+            return stringInfo;
+            else
+            return "";
+        }  
+        return "0";
     }
 }

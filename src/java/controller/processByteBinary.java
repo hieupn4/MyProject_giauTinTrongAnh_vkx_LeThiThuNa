@@ -1,8 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//***********************************************************************************
+//Nguyen Kieu Oanh**********************Chu Thi Thuong Hien*****************************
+//***************Tran Thi Khanh Linh*****************************Nguyen Thi Nguyet*******
+//*******************************Nguyen Thi Thanh Nhan*********************************
+//***********************************************************************************
+//*****Author: hieupn89@gmail.com*******************************************************
 package controller;
 
 /**
@@ -53,4 +54,13 @@ public class processByteBinary {
            return y;   
         }
     }
+    /**
+     * chuyển một chuỗi bit(có số bit chia hết cho 8) thành giá trị thập phân
+     * ví dụ 13 0B 00 00 hệ hex , kết quả hệ thập phân là 2835
+     */
+    public static String converToIntFromBit(String x)
+    {
+        return "";
+    }
+    
 }

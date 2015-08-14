@@ -1,8 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//***********************************************************************************
+//Nguyen Kieu Oanh**********************Chu Thi Thuong Hien*****************************
+//***************Tran Thi Khanh Linh*****************************Nguyen Thi Nguyet*******
+//*******************************Nguyen Thi Thanh Nhan*********************************
+//***********************************************************************************
+//*****Author: hieupn89@gmail.com*******************************************************
 package controller;
 import java.awt.Dimension;
 import java.awt.Image;
