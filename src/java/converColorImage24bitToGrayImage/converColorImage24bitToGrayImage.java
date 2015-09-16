@@ -13,6 +13,8 @@ import java.io.IOException;
 
 /**
  * lớp này dùng để chuyển một ảnh bitmap 24 bit màu thành 1 ảnh xám đa cấp 8 bit
+ * chú ý là viết như mã nguồn dưới đây chương trình chạy rất chậm nếu ảnh có kích thước lớn
+ * nó chưa được tối ưu
  * @author Administrator
  */
 public class converColorImage24bitToGrayImage {
@@ -37,9 +39,9 @@ public class converColorImage24bitToGrayImage {
         String them = y.substring(53*8);
         anhcu = anhcu + them;
         int[] a = new int[them.length()/8];
-        System.out.println(them.length()%8);
+       // System.out.println(them.length()%8);
         //đưa độ xám của mỗi màu vào mảng kiểu int
-        System.out.println(them);
+       // System.out.println(them);
         for(int i=0;i<a.length;i++)
         {
             String x1 ="";
@@ -47,7 +49,7 @@ public class converColorImage24bitToGrayImage {
             {
                 x1=x1+them.charAt(j);
             }
-            System.out.print(x1);
+          //  System.out.print(x1);
             a[i] = processByteBinary.converToInt255(x1);
             
         }
@@ -63,7 +65,7 @@ public class converColorImage24bitToGrayImage {
         String bm = header + tg2;
         byte[] file = new byte[bm.length()/8];
         file = obPro.converBinaryToByteAarray(bm);
-        obPro.createFileFromByteArray(file,"C:\\Users\\Administrator\\Desktop\\thu3.bmp");
+        obPro.createFileFromByteArray(file,"C:\\Users\\Administrator\\Desktop\\linh5.bmp");
     }
     /**
      * phương thức này chuyển 24 bit của một pixel màu về thành 8 bit / 1 pixel

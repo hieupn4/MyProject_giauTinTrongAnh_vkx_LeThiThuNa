@@ -21,7 +21,7 @@ public class converColorImage24bitToGrayImageTest {
     @Test
     public void testConver() throws Exception {
         System.out.println("conver");
-        String url1 = "C:\\Users\\Administrator\\Desktop\\thu.bmp";
+        String url1 = "C:\\Users\\Administrator\\Desktop\\linh.bmp";
         String url2 = "";
         converColorImage24bitToGrayImage.conver(url1, url2);
         
