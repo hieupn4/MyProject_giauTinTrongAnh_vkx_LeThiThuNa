@@ -65,7 +65,7 @@ public class converColorImage24bitToGrayImage {
         String bm = header + tg2;
         byte[] file = new byte[bm.length()/8];
         file = obPro.converBinaryToByteAarray(bm);
-        obPro.createFileFromByteArray(file,"C:\\Users\\Administrator\\Desktop\\linh5.bmp");
+        obPro.createFileFromByteArray(file,url2);
     }
     /**
      * phương thức này chuyển 24 bit của một pixel màu về thành 8 bit / 1 pixel

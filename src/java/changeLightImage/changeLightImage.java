@@ -4,24 +4,31 @@
 //*******************************Nguyen Thi Thanh Nhan*********************************
 //***********************************************************************************
 //*****Author: hieupn89@gmail.com*******************************************************
-package converColorImage24bitToAmBan;
+package changeLightImage;
+
 import controller.processByteBinary;
 import controller.processFile;
 import java.io.IOException;
 
 /**
- * lớp này dùng để chuyển một ảnh màu bitmap 24 bit thành ảnh âm bản
- * giải thuật thì rất đơn giản chỉ cần lấy 255 - giá trị màu của mức xám của 3 màu R G B tại mỗi pixel là được
+ * lớp này được xây dựng để thay đổi độ sáng của ảnh
+ * phương pháp là dùng toán tử điểm,tác động lên từng điểm ảnh
+ * mức xám trên từng kênh màu của ảnh sẽ được cộng thêm một giá trị là c 
+ * c nằm trong khoảng [-255,255]
+ * nếu c>0 thì nghĩa là ảnh sáng lên 
+ * c < 0 thì nghĩa là ảnh tối đi
  * @author Administrator
  */
-public class converColorImage24bitToAmBan {
+public class changeLightImage {
     /**
-     * 
-     * @param url1 :vị trí của ảnh bimap 24 màu
-     * @param url2 :vị trí mà chúng ta lưu ảnh âm bản
+     * chú ý là lớp này chưa được tối ưu nên xử lý với ảnh kích thước lớn rất chậm
+     * đề nghị sử dụng những ảnh có kích thước bé để sử dụng những lớp này
+     * @param url1 : location của ảnh nguồn
+     * @param url2 : location của ảnh đích
+     * @param c : giá trị tăng của mức xám nằm trong khoảng [-255,255]
      * @throws IOException 
      */
-    public static void conver(String url1,String url2) throws IOException
+    public static void conver(int c,String url1,String url2) throws IOException
     {
         /* mình đang thử trong trường hợp file ảnh có chiều ngang với số byte chia hết cho 4 */
         //chuyển thanh luồng byte
@@ -53,7 +60,7 @@ public class converColorImage24bitToAmBan {
         
         // biến 24 bit thành 24 bit của ảnh âm bản
         int[] b = new int[a.length];
-        converInts24ToInts24(a,b);
+        converInts24ToInts24(c,a,b);
         //chuỗi data bitmap mới được tạo thành như sau : 24 bit đầu được thay bằng 24 bit mới
         String tg2 ="";
         for(int i=0;i<b.length;i++)
@@ -68,10 +75,17 @@ public class converColorImage24bitToAmBan {
      * phương thức này từ 24 bit của ảnh màu ta chuyển thành 24 bit của ảnh âm bản 
      * @param nInts24bit : ảnh trước khi biến đổi
      * @param n2Ints24bit : ảnh sau khi biến đổi
+     * @param c : giá trị tăng của mức xám , nằm trong khoảng [-255,255]
      */
-    public static void converInts24ToInts24(int[] nInts24bit,int[] n2Ints24bit)
+    public static void converInts24ToInts24(int c,int[] nInts24bit,int[] n2Ints24bit)
     {
         for(int i=0;i<(nInts24bit.length);i++)
-            n2Ints24bit[i] = 255-nInts24bit[i];
+        {
+            n2Ints24bit[i] = c + nInts24bit[i];
+            if(n2Ints24bit[i]>255)
+                n2Ints24bit[i] = 255;
+            if(n2Ints24bit[i]<0)
+                n2Ints24bit[i] = 0;
+        }
     }
 }
