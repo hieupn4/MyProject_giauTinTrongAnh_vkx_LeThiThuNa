@@ -117,7 +117,9 @@ public class changeContrastImage {
      }
      if(x>=b_para)
      {
+         //int x4555 =45;
          lamda = (float)(Vc-Vb)/(float)(255-b_para);
+         //pham ngoc hieu
          store =(int) (lamda*(x-b_para)+Vb);
          if(store>=255)
          store = 255;
