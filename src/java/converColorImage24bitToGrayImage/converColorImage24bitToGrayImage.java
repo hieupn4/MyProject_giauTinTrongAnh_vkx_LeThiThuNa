@@ -116,6 +116,7 @@ public class converColorImage24bitToGrayImage {
      * một mảng byte của ảnh xám 8bit/ 1 pixel
      * @param nBytes24bit
      * @param nBytes8bit 
+     * phương thức này không xài
      */
     public static void converIntsToInt(int[] nInts24bit,int[] nInts8bit)
     {

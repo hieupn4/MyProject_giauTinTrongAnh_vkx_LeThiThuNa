@@ -18,12 +18,15 @@ public class converColorImage24bitToGrayImageTest {
     public converColorImage24bitToGrayImageTest() {
     }
 
-    @Test
+   // @Test
     public void testConver() throws Exception {
-        System.out.println("conver");
+      /*  System.out.println("conver");
         String url1 = "C:\\Users\\Administrator\\Desktop\\linh.bmp";
         String url2 = "";
-        converColorImage24bitToGrayImage.conver(url1, url2);
+        converColorImage24bitToGrayImage.conver(url1, url2);*/
+        int x = 2;
+        float y = 1.63f;
+        System.out.println(x*y);
         
     }
 
