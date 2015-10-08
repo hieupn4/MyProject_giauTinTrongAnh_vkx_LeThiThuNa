@@ -23,7 +23,7 @@ public class locnhieutrungbinhTest {
         System.out.println("process");
         String url1 = "";
         String url2 = "";
-        locnhieutrungbinh.process("C:\\Users\\PhamNgocHieu\\Desktop\\diecphi.bmp","C:\\Users\\PhamNgocHieu\\Desktop\\diecphi222.bmp");
+        locnhieutrungbinh.process("C:\\Users\\PhamNgocHieu\\Desktop\\diecphi1.bmp","C:\\Users\\PhamNgocHieu\\Desktop\\diecphi222.bmp");
         
     }
     

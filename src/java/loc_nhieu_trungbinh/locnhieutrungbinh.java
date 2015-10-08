@@ -23,7 +23,7 @@ public class locnhieutrungbinh {
         
         // đưa phần databitmap thành ma trận 3 chiều
         int[][][] matrixImage = converBitmap24bitTo3DArrayTypeInt.process3D(url1);
-        int[][][] matrixImageAfter = null;
+        int[][][] matrixImageAfter = matrixImage;
         // lấy phần header và phần infomatio của ảnh ra
         String header = readImage.readHeadIfomationBitmap(url1);
         // xác định bộ lọc trung bình

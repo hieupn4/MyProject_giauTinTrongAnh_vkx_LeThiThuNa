@@ -98,12 +98,16 @@ public class converBitmap24bitTo3DArrayTypeInt {
      //   System.out.println(a[33]+" "+a[34]+" "+a[35]);
         //đưa vào mảng 3 chiều. chú ý là lưu theo thứ tự hàng
         int i=0;
+        System.out.println(" ");
+        System.out.println("a="+a.length);
+        System.out.println("height="+height);
+        System.out.println("width="+width);
             for(int j=0;j<height;j++)
             {
                 for(int k=0;k<width;k++)
                 {
                     image[0][j][k]= a[i*3];
-                 //   System.out.println(a[i*3]);
+                    System.out.println("i="+i+" "+"j="+j+"k="+k);
                     image[1][j][k]= a[i*3+1];
                  //   System.out.println(a[i*3+1]);
                     image[2][j][k]= a[i*3+2];

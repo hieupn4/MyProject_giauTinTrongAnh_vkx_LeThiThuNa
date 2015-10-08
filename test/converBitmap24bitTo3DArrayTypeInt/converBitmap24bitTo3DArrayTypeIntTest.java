@@ -30,13 +30,13 @@ public class converBitmap24bitTo3DArrayTypeIntTest {
     @Test
     public void testProcess3D() {
         System.out.println("process3D");
-        String url = "C:\\Users\\PhamNgocHieu\\Desktop\\diecphi.bmp";
+        String url = "C:\\Users\\PhamNgocHieu\\Desktop\\diecphi1.bmp";
         int[][][] expResult = null;
         int[][][] result = converBitmap24bitTo3DArrayTypeInt.process3D(url);
-        int[] l = converBitmap24bitTo3DArrayTypeInt.return1dArrayFrom3dArray(result);
+       /* int[] l = converBitmap24bitTo3DArrayTypeInt.return1dArrayFrom3dArray(result);
         System.out.println();
         for(int i=0;i<l.length;i++)
-            System.out.print(l[i]);
+            System.out.print(l[i]); */
         
     }
 
