@@ -41,11 +41,12 @@ public class nhanchap {
                        tam = tam + H[k][l]*image[i-k+r][j-l+r];
                        System.out.print(H[k][l]+"*"+image[i-k+r][j-l+r]+" + ");
                    }
-               System.out.println("");
+            /*   System.out.println("");
                if(tam>255)
                    tam = 255;
                if(tam <0)
-                   tam =0;
+                   tam =0; */ 
+               // chỗ này mà không có if else như trên coi chừng có giá trị lớn hơn 255
                Y[i][j] = tam;
               // System.out.print(tam +" ");
            }

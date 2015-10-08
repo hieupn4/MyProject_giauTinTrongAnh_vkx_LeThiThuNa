@@ -5,7 +5,6 @@
 //***********************************************************************************
 //*****Author: hieupn89@gmail.com*******************************************************
 package controller;
-
 import java.awt.Dimension;
 import java.io.File;
 import java.io.IOException;
@@ -121,5 +120,27 @@ public class processImage {
             return "";
         }  
         return "0";
+    }
+    /**
+     * phương thức này để xác định xem phần databitmap của ảnh nằm ở vị trí byte
+     * thứ mấy
+     * @param url : location của ảnh bitmap 24bit
+     * @return : vị trí byte thứ mấy của phần data bitmap
+     * đã test thành công
+     */
+    public static int getLocationOfDataPart(String url)
+    {
+        String fileBinary = processFile.converFileToBinaryString(url);
+        String stringInfo = "";
+        // byte thông tin về phần data nằm ở byte thứ 11 đến 14
+        for(int j=10*8;j<13*8;j++)
+            stringInfo = stringInfo + fileBinary.charAt(j);
+        // chỗ này chưa được chuẩn xác lắm khi mình lấy 8 byte đầu để xác định vị trí của phần data
+        // nhưng thôi được tạm thời là như vậy
+        String data8first = "";
+        for(int j=0;j<8;j++)
+            data8first = data8first + stringInfo.charAt(j);
+        int orderByte = processByteBinary.converToInt255(data8first);
+        return orderByte;
     }
 }
