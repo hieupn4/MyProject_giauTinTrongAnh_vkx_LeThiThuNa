@@ -18,6 +18,12 @@ import readImage.readImage;
  * @author PhamNgocHieu
  */
 public class locnhieutrungbinh {
+    /**
+     * phương thức này chạy thuật toán lọc nhiễu bằng lọc trung bình, khử nhiễu cộng
+     * @param url1 : location của ảnh ban đầu có nhiễu
+     * @param url2 : location của ảnh sau khi khử nhiễu
+     * @throws IOException 
+     */
     public static void process(String url1,String url2) throws IOException
     {
         
