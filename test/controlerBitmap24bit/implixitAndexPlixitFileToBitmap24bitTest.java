@@ -21,40 +21,23 @@ public class implixitAndexPlixitFileToBitmap24bitTest {
     public implixitAndexPlixitFileToBitmap24bitTest() {
     }
 
-    //@Test
-    public void testProcessHideFile() throws IOException {
-       // int dem =0;
-      
-        //String result = implixitAndexPlixitFileToBitmap24bit.processHideFile("C:\\Users\\Administrator\\Desktop\\nguyet.bmp","C:\\Users\\Administrator\\Desktop\\nguyet.docx");
-      /*  processFile x = new processFile();
-        String result2 = implixitAndexPlixitFileToBitmap24bit.processShowFile("C:\\Users\\Administrator\\Desktop\\nguyethide.bmp");
-        String result3 = x.converFileToBinaryString("C:\\Users\\Administrator\\Desktop\\nguyet.docx"); */
-        
-      /*  processFile x = new processFile();
-        byte[] y = processByteBinary.fromBinary(result2);
-        processFile z = new processFile();
-        z.createFileFromByteArray(y,"C:\\Users\\Administrator\\Desktop\\hung2.docx"); */
-      //  String result = implixitAndexPlixitFileToBitmap24bit.processHideFile("C:\\Users\\Administrator\\Desktop\\nguyet.bmp","C:\\Users\\Administrator\\Desktop\\nguyet.docx");
-        
-       /*     String filethu2 = filethu.substring(54*8);
-            String trunggian="";
-            for(int i=0;i<94064;i++)
-               trunggian = trunggian + filethu2.charAt(i*8+7);
-            processFile x = new processFile();
-            
-        byte[] y = processByteBinary.fromBinary(trunggian);
-        processFile z = new processFile();
-        z.createFileFromByteArray(y,"C:\\Users\\Administrator\\Desktop\\hung2.docx"); */
-        implixitAndexPlixitFileToBitmap24bit.processHideFile("C:\\Users\\Administrator\\Desktop\\nhanxeo.bmp","C:\\Users\\Administrator\\Desktop\\nguyet.docx");
-        
-    }
+   
 
     @Test
     public void testProcessShowFile() throws IOException {
         
-       
+     implixitAndexPlixitFileToBitmap24bit.processShowFile("C:\\Users\\PhamNgocHieu\\Desktop\\anhan.bmp", "C:\\Users\\PhamNgocHieu\\Desktop\\hieu.txt");
         
         
+    }
+
+    //@Test
+    public void testProcessHideFile() throws Exception {
+        System.out.println("processHideFile");
+        String rootBitmap = "C:\\Users\\PhamNgocHieu\\Desktop\\implixit.bmp";
+        String file = "C:\\Users\\PhamNgocHieu\\Desktop\\implixit.txt";
+        implixitAndexPlixitFileToBitmap24bit.processHideFile(rootBitmap, file);
+       // fail("The test case is a prototype.");
     }
     
 }

@@ -51,7 +51,7 @@ public class processFile {
      * @param url
      * @return 
      */
-    public char[][] convertBitmapBlackWhiteToMatrixBinary(String url)
+    public static char[][] convertBitmapBlackWhiteToMatrixBinary(String url)
     {
         Dimension sizeImage = processImage.getImageDim(url);
         String binaryStringBitmapBlackWhite = converFileToBinaryString(url);
@@ -85,7 +85,7 @@ public class processFile {
      * param sizeMaxByte
      * @return
      */
-    public boolean checkSizeFile(String url, int sizeMaxByte) {
+    public static boolean checkSizeFile(String url, int sizeMaxByte) {
         File file = new File(url);
         // convert file into array of bytes
         byte[] bFile = new byte[(int) file.length()];
@@ -96,7 +96,7 @@ public class processFile {
         }
     }
 
-    public byte[] converBinaryToByteAarray(String s) {
+    public static byte[] converBinaryToByteAarray(String s) {
 
        int sLen = s.length();
         byte[] toReturn = new byte[(sLen + Byte.SIZE - 1) / Byte.SIZE];
@@ -122,7 +122,7 @@ public class processFile {
      * @param url location of file
      * @throws IOException 
      */
-    public void createFileFromByteArray(byte[] fileByteArray, String url) throws IOException {
+    public static void createFileFromByteArray(byte[] fileByteArray, String url) throws IOException {
 
         Path path = Paths.get(url);
         Files.write(path, fileByteArray);

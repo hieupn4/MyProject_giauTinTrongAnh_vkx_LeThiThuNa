@@ -6,7 +6,7 @@
 //*****Author: hieupn89@gmail.com*******************************************************
 
 package converColorImage24bitToGrayImage;
-
+import readImage.readImage;
 import controller.processByteBinary;
 import controller.processFile;
 import java.io.IOException;
@@ -32,11 +32,11 @@ public class converColorImage24bitToGrayImage {
         processFile obPro = new processFile();
         String x = processFile.converFileToBinaryString(url1);
         //lấy phần header và phần infomation của ảnh
-        String header = x.substring(0,53*8);
+        String header = readImage.readHeadIfomationBitmap(url1);
         anhcu = anhcu + header;
         StringBuffer y =new StringBuffer(x);
         // tách trích phần data bitmap ra
-        String them = y.substring(53*8);
+        String them = readImage.readDataBitmap(url1);
         anhcu = anhcu + them;
         int[] a = new int[them.length()/8];
        // System.out.println(them.length()%8);

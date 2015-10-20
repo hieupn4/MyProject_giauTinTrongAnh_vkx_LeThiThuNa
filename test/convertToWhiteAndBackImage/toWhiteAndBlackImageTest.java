@@ -22,8 +22,8 @@ public class toWhiteAndBlackImageTest {
     public void testConver() throws Exception {
         System.out.println("conver");
         int anpha = 150;
-        String url1 = "C:\\Users\\Administrator\\Desktop\\backWhite1.bmp";
-        String url2 = "C:\\Users\\Administrator\\Desktop\\backWhite2.bmp";
+        String url1 = "C:\\Users\\PhamNgocHieu\\Desktop\\changeContrast.bmp";
+        String url2 = "C:\\Users\\PhamNgocHieu\\Desktop\\whitebalck.bmp";
         toWhiteAndBlackImage.conver(anpha, url1, url2);
         //fail("The test case is a prototype.");
     }

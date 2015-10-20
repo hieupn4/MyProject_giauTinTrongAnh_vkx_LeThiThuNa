@@ -21,8 +21,8 @@ public class converColorImage24bitToAmBanTest {
     @Test
     public void testConver() throws Exception {
         System.out.println("conver");
-        String url1 = "C:\\Users\\Administrator\\Desktop\\linh2.bmp";
-        String url2 = "C:\\Users\\Administrator\\Desktop\\amban.bmp";
+        String url1 = "C:\\Users\\PhamNgocHieu\\Desktop\\changeContrast.bmp";
+        String url2 = "C:\\Users\\PhamNgocHieu\\Desktop\\khongchiahet2.bmp";
         converColorImage24bitToAmBan.conver(url1, url2);
        // fail("The test case is a prototype.");
     }

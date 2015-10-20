@@ -22,9 +22,9 @@ public class changeLightImageTest {
     public void testConver() throws Exception {
         System.out.println("conver");
         int c = 0;
-        String url1 = "";
-        String url2 = "";
-        changeLightImage.conver(100,"C:\\Users\\Administrator\\Desktop\\na1.bmp", url2);
+        String url1 = "C:\\Users\\PhamNgocHieu\\Desktop\\changeContrast.bmp";
+        String url2 = "C:\\Users\\PhamNgocHieu\\Desktop\\changeContrast2.bmp";
+        changeLightImage.conver(100,url1, url2);
       //  fail("The test case is a prototype.");
     }
 

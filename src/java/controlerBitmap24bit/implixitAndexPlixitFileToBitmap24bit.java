@@ -10,13 +10,16 @@ package controlerBitmap24bit;
 import controller.processByteBinary;
 import controller.processFile;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  *
  * @author Administrator
  */
 public class implixitAndexPlixitFileToBitmap24bit {
-    private static int countBit =98480;// đếm số lượng bit của file cần giấu
+    private static int countBit =784;// đếm số lượng bit của file cần giấu
     /*
     phương thức này để giấu các bit của file trong các bit của file bitmap gốc có location là rootBitmap
     */
@@ -27,6 +30,7 @@ public class implixitAndexPlixitFileToBitmap24bit {
         String storeStringBinaryImage = prox.converFileToBinaryString(rootBitmap);
         
         String storeStringBinaryFile = prox.converFileToBinaryString(file);
+        //System.out.println(storeStringBinaryFile.length());
         //countBit = storeStringBinaryFile.length();
         
         //lấy phần header và infomation của file Bitmap ra riêng
@@ -34,6 +38,7 @@ public class implixitAndexPlixitFileToBitmap24bit {
         //tiếp theo là lấy phần data bitmap ra trong chuỗi nhị phân thu được
         String  storeDataBitmap =storeStringBinaryImage.substring(54*8);
         //gắn những bit thuộc file vào data bitmap
+        // System.out.println(storeDataBitmap.length()+"  "+storeStringBinaryFile.length());
         if((storeDataBitmap.length()/8)<storeStringBinaryFile.length()  )
             //return null;
         {
@@ -50,10 +55,14 @@ public class implixitAndexPlixitFileToBitmap24bit {
                returnBinary.replace(i*8+7,i*8+8,y);               
             }
             String filethu = headerIfo+returnBinary.toString();
+            //System.out.println(filethu);
             processFile x = new processFile();           
             byte[] y = processByteBinary.fromBinary(filethu);
-            processFile z = new processFile();
-            z.createFileFromByteArray(y,"C:\\Users\\Administrator\\Desktop\\xeonhan.bmp");
+           // for(int i=0;i<y.length;i++)
+             //   System.out.println(y[i]);
+           // processFile z = new processFile();
+            //System.out.println(y.length + " "+y[78]);           
+           prox.createFileFromByteArray(y,"C:\\Users\\PhamNgocHieu\\Desktop\\anhan.bmp");
         }       
     }
     /*

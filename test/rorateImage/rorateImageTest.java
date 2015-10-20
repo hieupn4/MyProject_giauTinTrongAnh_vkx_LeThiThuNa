@@ -21,8 +21,8 @@ public class rorateImageTest {
     @Test
     public void testConver() throws Exception {
         System.out.println("conver");
-        String url1 = "C:\\Users\\Administrator\\Desktop\\linh3.bmp";
-        String url2 = "C:\\Users\\Administrator\\Desktop\\linh33.bmp";
+        String url1 = "C:\\Users\\PhamNgocHieu\\Desktop\\changeContrast.bmp";
+        String url2 = "C:\\Users\\PhamNgocHieu\\Desktop\\xoayanh.bmp";
         rorateImage.conver(url1, url2);
         
     }

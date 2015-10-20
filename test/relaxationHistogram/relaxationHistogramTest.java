@@ -21,8 +21,8 @@ public class relaxationHistogramTest {
    @Test
     public void testConver() throws Exception {
         System.out.println("conver");
-        String url1 = "C:\\Users\\Administrator\\Desktop\\linh2.bmp";
-        String url2 = "C:\\Users\\Administrator\\Desktop\\changeContrast6.bmp";
+        String url1 = "C:\\Users\\PhamNgocHieu\\Desktop\\changeContrast.bmp";
+        String url2 = "C:\\Users\\PhamNgocHieu\\Desktop\\gianhitogram.bmp";
         relaxationHistogram.conver(url1, url2,100,200,0,255);
         
     }

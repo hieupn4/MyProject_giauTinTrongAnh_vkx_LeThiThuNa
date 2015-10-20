@@ -23,7 +23,7 @@ public class processFileTest {
     //@Before
     public void setUp() {
     }
-    @Test
+   // @Test
     public void testConverFileToBinaryString() {
         
        String x = processFile.converFileToBinaryString("C:\\Users\\Administrator\\Desktop\\thu.bmp");
@@ -50,9 +50,23 @@ public class processFileTest {
         System.out.println(Byte.parseByte("11111111", 2));
     }
 
-    //@Test
+    @Test
     public void testCreateFileFromByteArray() throws Exception {
-        System.out.print(Integer.valueOf("11111111", 2));
+        
+        /*String x = processFile.converFileToBinaryString("C:\\Users\\PhamNgocHieu\\Desktop\\implixit.bmp");
+        byte[] y = processFile.converBinaryToByteAarray(x);
+        processFile.createFileFromByteArray(y,"C:\\Users\\PhamNgocHieu\\Desktop\\implixit2.bmp");*/
+      /*  String storeStringBinaryImage = processFile.converFileToBinaryString("C:\\Users\\PhamNgocHieu\\Desktop\\implixit.bmp");
+        byte[] z = processFile.converBinaryToByteAarray(storeStringBinaryImage);
+        processFile.createFileFromByteArray(z,"C:\\Users\\Administrator\\Desktop\\implixit2.bmp");*/
+       String x = processFile.converFileToBinaryString("C:\\Users\\PhamNgocHieu\\Desktop\\implixit.bmp");
+        byte[] y = processFile.converBinaryToByteAarray(x);
+        processFile.createFileFromByteArray(y,"C:\\Users\\PhamNgocHieu\\Desktop\\xeonhan.bmp");
+      /*  String x = processFile.converFileToBinaryString("C:\\Users\\PhamNgocHieu\\Desktop\\implixit.bmp");
+        byte[] y = processFile.converBinaryToByteAarray(x);
+        processFile.createFileFromByteArray(y,"C:\\Users\\PhamNgocHieu\\Desktop\\xeonhan.bmp"); */
+             
+        
         
     }
 
